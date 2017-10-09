@@ -15,11 +15,13 @@ class ChildForm extends React.Component {
 
   handleChange(e) {
     this.setState({name: e.target.value});
+    console.log('updated');
   }
 
   handleSubmit(e) {
     e.preventDefault();
     let {onComplete} = this.props;
+    this.props.onComplete(this.props.child);
     let result = onComplete(this.state);
     if (result instanceof Promise) {
       result

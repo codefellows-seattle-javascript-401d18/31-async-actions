@@ -22,13 +22,6 @@ class Dashboard extends React.Component {
 
         <ChildList
         />
-
-        {/* {this.props.children.map(child => 
-          <div key={child._id}>
-            <p>{child.name}</p>
-            <button onClick={() => this.props.childDelete(child)}>x</button>
-          </div>
-        )} */}
       </div>
     );
   }
