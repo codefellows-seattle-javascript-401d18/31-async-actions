@@ -3,6 +3,7 @@
 require('dotenv').config({ path: `${__dirname}/.dev.env` });
 const production = process.env.NODE_ENV === 'production';
 
+
 const { DefinePlugin, EnvironmentPlugin } = require('webpack');
 const HtmlPlugin = require('html-webpack-plugin');
 const ExtractPlugin = require('extract-text-webpack-plugin');
