@@ -48,3 +48,13 @@
 * add reporter and thunk middleware to your redux store
 * create async action creators for making ajax request to your backend
 * create sync action creators (regular action creators that return an object literal) for updating your app store
+
+###### App Component Tree
+Your components should be nested in the following layout  
+``` 
+App
+  DashboardContainer
+    ResourceForm (create)
+    [ResourceItem]
+      ResourceForm (update)
+```
