@@ -1,61 +1,56 @@
 import React from 'react';
+import * as utils from '../../lib/util';
 
 
-class CategoryForm extends React.Component {
+class ChildForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      title: props.category ? props.category.title : '',
-      budget: props.category ? props.category.budget : '',
-      id: props.category ? props.category.id :null,
-
-    };
-
+    this.state = props.child ? props.child : {name: ''};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+
   componentWillReceiveProps(props) {
-    if (props.category) {
-      this.setState(props.category);
+    if (props.child) {
+      this.setState(props.child);
     }
   }
 
   handleChange(e) {
-    this.setState(
-      {
-        [e.target.name]: e.target.value,
-      });
+    this.setState({name: e.target.value});
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.onComplete({...this.state});
-
-    if (!this.props.category) {
-      this.setState({ title: '' });
+    let {onComplete} = this.props;
+    let result = onComplete(this.state);
+    if (result instanceof Promise) {
+      result
+        .then(() => this.setState({ error: null }))
+        .catch(error => {
+          utils.log('ListForm Error:', error);
+          this.setState({ error });
+        });
     }
   }
 
+
   render() {
     return (
-      <form className="category-form" onSubmit={this.handleSubmit}>
-        <h4>{this.props.buttonText} category</h4>
-        <input
-          type="text"
-          name="title"
-          placeholder="enter a title"
-          value={this.state.title}
-          onChange={this.handleChange}/><br/>
+      <form
+        onSubmit={this.handleSubmit}
+        className={utils.classToggler({
+          'child-form': true,
+          'error': this.state.error,
+        })}>
 
         <input
-          name='budget'
-          type='number'
-          placeholder='cost'
-          value={this.state.budget}
-          onChange={this.handleChange}
-        />
-        <br/>
+          name='text'
+          type='name'
+          placeholder='name'
+          value={this.state.title}
+          onChange={this.handleChange}/>
 
         <button type="submit">{this.props.buttonText}</button>
       </form>
@@ -63,4 +58,5 @@ class CategoryForm extends React.Component {
   }
 }
 
-export default CategoryForm;
+
+export default ChildForm;
