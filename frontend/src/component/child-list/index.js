@@ -5,7 +5,13 @@ import * as util from '../../lib/util';
 import * as childActions from '../../action/child-actions';
 
 class ChildList extends React.Component {
-
+  constructor(props){
+    super(props);
+    this.state = {
+    
+    };
+  
+  }
 
   render () {
     return (
@@ -17,7 +23,8 @@ class ChildList extends React.Component {
            
             <div className='childUpdateForm'>
               <ChildForm
-                onComplete={this.handleSubmit()}
+                child={child}
+                onComplete={this.props.childUpdate}
                 buttonText="Update Child"
               />
             </div>

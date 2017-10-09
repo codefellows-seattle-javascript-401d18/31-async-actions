@@ -42,7 +42,6 @@ export const childCreateRequest = child => dispatch => {
   return superagent.post(`${__API_URL__}/api/child`)
     .send(child)
     .then(res => {
-      console.log(res.body); // => {_id: 1234, name: 'watman', createdAt: 'xxx', updatedAt: 'yyy'}
       dispatch(childCreate(res.body));
       return res;
     })
@@ -60,6 +59,7 @@ export const childDeleteRequest = (child) => (dispatch) => {
 
 export const childUpdateRequest = (child) => (dispatch) => {
   return superagent.put( `${__API_URL__}/api/child/${child._id}` )
+    .send(child)
     .then(res => {
       dispatch(childUpdate(child));
       return res;
