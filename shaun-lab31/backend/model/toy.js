@@ -2,7 +2,7 @@
 
 
 const debug = require('debug')('http:model-toy');
-const Child = require('../model/child');
+const Child = require('./child');
 const mongoose = require('mongoose');
 
 const Toy = mongoose.Schema({

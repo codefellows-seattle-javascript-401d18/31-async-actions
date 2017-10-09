@@ -1,8 +1,10 @@
-
 # Created by https://www.gitignore.io/api/osx,linux,node,vim
 
-db/
-build/
+db
+build
+*.env
+.*.env
+.env
 
 ### OSX ###
 .DS_Store
@@ -47,7 +49,6 @@ coverage
 build/Release
 
 # Dependency directories
-data
 node_modules
 jspm_packages
 
