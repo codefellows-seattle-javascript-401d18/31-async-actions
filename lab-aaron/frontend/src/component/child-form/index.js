@@ -26,7 +26,7 @@ class ChildForm extends React.Component {
         .then(() => this.setState({ error: null }))
         .catch(error => {
           utils.log('ListForm Error', error);
-          this.setState({ error });
+          this.setState({ name: '', error });
         });
     }
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import ChildForm from '../child-form';
+import ChildItem from '../child-item';
 import * as utils from '../../lib/util';
 import * as childActions from '../../action/child-actions';
 
@@ -28,7 +29,7 @@ class Dashboard extends React.Component {
       </div>
     );
   }
-} //stay away from me until the end..
+}
 
 let mapStateToProps = state => ({children: state.children});
 let mapDispatchToProps = dispatch => ({

@@ -28,8 +28,8 @@ export const childError = err => ({
 export const childrenFetchRequest = () => dispatch => {
   return superagent.get(`${__API_URL__}/api/child`)
     .then(res => {
-      console.log(res.body);
       dispatch(childSet(res.body));
+      return res;
     })
     .catch(console.error());
 };
@@ -38,16 +38,8 @@ export const childCreateRequest = child => dispatch => {
   return superagent.post(`${__API_URL__}/api/child`)
     .send(child)
     .then(res => {
-      console.log(res.body);
       dispatch(childCreate(res.body));
-    })
-    .catch(console.error);
-};
-
-export const childDeleteRequest = child => dispatch => {
-  return superagent.delete(`${__API_URL__}/api/child/${child._id}`)
-    .then(res => {
-      dispatch(childDelete(child));
+      return res;
     })
     .catch(console.error);
 };
@@ -57,6 +49,16 @@ export const childUpdateRequest = child => dispatch => {
     .send(child)
     .then(res => {
       dispatch(childUpdate(child));
+      return res;
+    })
+    .catch(console.error);
+};
+
+export const childDeleteRequest = child => dispatch => {
+  return superagent.delete(`${__API_URL__}/api/child/${child._id}`)
+    .then(res => {
+      dispatch(childDelete(child));
+      return res;
     })
     .catch(console.error);
 };
