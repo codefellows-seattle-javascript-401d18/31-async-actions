@@ -9,7 +9,7 @@ class ChildForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentWilReceiveProps(props) {
+  componentWillReceiveProps(props) {
     if(props.child) this.setState(props.child);
   }
 

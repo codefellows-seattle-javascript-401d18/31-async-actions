@@ -54,3 +54,14 @@ export const childDeleteRequest = child => dispatch => {
     })
     .catch(console.error);
 };
+
+export const childUpdateRequest = child => dispatch => {
+  return superagent.put(`${__API_URL__}/api/child/${child._id}`)
+    .send(child)
+    .then(res => {
+      console.log('lulwat', child)
+      dispatch(childUpdate(child));
+      return res;
+    })
+    .catch(console.error);
+};
