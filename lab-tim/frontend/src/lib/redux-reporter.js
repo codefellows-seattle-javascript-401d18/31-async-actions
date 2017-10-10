@@ -1,4 +1,4 @@
-export default store => next => action => {
+let reporter = store => next => action => {
   console.log('__ACTION__', action);
 
   try {
@@ -13,3 +13,5 @@ export default store => next => action => {
     return e;
   }
 };
+
+export default reporter;

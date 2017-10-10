@@ -1,7 +1,7 @@
-# Lab 28 - Redux Middleware
+# Lab 31 - Async Thunk
 ## Tim Turner
 ========================================
 
 ### Description
 
-This is simple expense tracker.  You can add expense categories with a budget.  You can then add expense items and price to a category.
+This is the frontend to an app using React, Redux, MongoDB, and Express.

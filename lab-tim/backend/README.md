@@ -1,8 +1,10 @@
-# Lab 13 - Single Mongo Resource
+# Lab 31 - Async Thunk
 ## Tim Turner
 =====================================
 
 ### Description
+
+This is the backend to an app using React, Redux, MongoDB, and Express.
 
 This app is a HTTP server.  You can send POST, PUT, GET, and DELETE requests to the server and get a response.  The valid only API endpoint is `/api/toy`.
 
