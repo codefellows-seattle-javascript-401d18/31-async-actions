@@ -27,6 +27,9 @@ export const childError = err => ({
 });
 
 export const childrenFetchRequest = () => dispatch => {
+  // make a superagent req to the backend
+  // on success dispatch the childSet action creator defined above
+  // on error log out the issue
   return superagent.get(`${__API_URL__}/api/child`)
     .then(res => {
       console.log(res.body);

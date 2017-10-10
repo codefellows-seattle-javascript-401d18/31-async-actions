@@ -1,5 +1,5 @@
 import React from 'react';
-import * as utils from '../../lib/util';
+import * as utils from '../../lib/utils';
 
 
 class ChildForm extends React.Component {

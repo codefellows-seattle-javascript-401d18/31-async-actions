@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
-import DashboardContainer from '../dashboard-container';
+import Dashboard from '../dashboard';
 import {Provider} from 'react-redux';
 import createAppStore from '../../lib/store';
 
@@ -22,7 +22,7 @@ class App extends React.Component {
         <Provider store={store}>
           <BrowserRouter>
             <section>
-              <Route exact path="/" component={DashboardContainer} />
+              <Route exact path="/" component={Dashboard} />
             </section>
           </BrowserRouter>
         </Provider>
