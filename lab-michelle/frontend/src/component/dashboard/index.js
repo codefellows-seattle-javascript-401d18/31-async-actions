@@ -19,13 +19,12 @@ class Dashboard extends React.Component {
             onComplete={this.props.childCreate}
             buttonText="enter a child"/>
 
-        {this.props.children.map(child =>
-          <div key = {child._id}>
-          <p>{child.name}</p>
-          <button onClick={() => this.props.childDelete(child)}>x</button>
-        </div>
-        )}
+      {util.renderIf(this.props.children.length,
+      <div>
+        {this.props.children.map(item => <ChildItem key={item._id} child={item}/>)}
       </div>
+    )}
+    </div>
     );
   }
 }
