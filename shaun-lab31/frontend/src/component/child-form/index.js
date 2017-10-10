@@ -36,6 +36,7 @@ class ChildForm extends React.Component {
   }
 
 
+
   render() {
     return (
       <form
@@ -46,9 +47,9 @@ class ChildForm extends React.Component {
         })}>
 
         <input
-          name='text'
-          type='name'
-          placeholder='name'
+          type="text"
+          name="name"
+          placeholder="name"
           value={this.state.title}
           onChange={this.handleChange}/>
 
@@ -57,6 +58,5 @@ class ChildForm extends React.Component {
     );
   }
 }
-
 
 export default ChildForm;

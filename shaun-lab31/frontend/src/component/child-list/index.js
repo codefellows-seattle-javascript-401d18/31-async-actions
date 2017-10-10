@@ -1,10 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import ChildForm from '../child-form';
-import * as utils from '../../lib/utils';
+import * as util from '../../lib/utils';
 import * as childActions from '../../action/child-actions';
 
 class ChildList extends React.Component {
+
 
   render () {
     return (
@@ -17,7 +18,8 @@ class ChildList extends React.Component {
             <div className='childUpdateForm'>
               <ChildForm
                 onComplete={this.handleSubmit()}
-                buttonText="Update Child"/>
+                buttonText="Update Child"
+              />
             </div>
           </div>
         )}
@@ -33,7 +35,6 @@ let mapDispatchToProps = dispatch => ({
   childCreate: child => dispatch(childActions.childCreateRequest(child)),
   childDelete: child => dispatch(childActions.childDeleteRequest(child)),
   childrenFetch: () => dispatch(childActions.childrenFetchRequest()),
-
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChildList);

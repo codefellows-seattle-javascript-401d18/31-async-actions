@@ -1,4 +1,3 @@
-let initialState = {};
 
 let validateChild = payload => {
   if (!payload.id) throw new Error('VALIDATION ERROR: child must have an id');
