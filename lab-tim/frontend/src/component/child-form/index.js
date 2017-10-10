@@ -14,7 +14,7 @@ class ChildForm extends React.Component {
   }
 
   handleChange(e) {
-    this.setState({name: e.target.value});
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   handleSubmit(e) {
@@ -43,7 +43,7 @@ class ChildForm extends React.Component {
         <input
           type="text"
           name="name"
-          placeholder="name"
+          placeholder="child name"
           value={this.state.title}
           onChange={this.handleChange}/>
 

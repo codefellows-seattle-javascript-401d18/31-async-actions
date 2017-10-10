@@ -2,7 +2,6 @@
 
 const debug = require('debug')('http:server');
 const PORT = process.env.PORT || 3000;
-//require('dotenv').config();
 
 // express setup
 const express = require('express');

@@ -23,8 +23,8 @@ class ChildItem  extends React.Component {
         {this.props.children.map(child =>
           <div key={child._id}>
             <p>{child.name}</p>
-            <button onClick={() => this.props.childDelete(child)}>X</button>
             <button onClick={this.toggleItem}>edit name</button>
+            <button onClick={() => this.props.childDelete(child)}>X</button>
             <div className='child-update-form'>
               {this.state.editName ?
                 <ChildForm
@@ -42,11 +42,7 @@ class ChildItem  extends React.Component {
   }
 }
 
-const mapStateToProps = (state, props) => {
-  return {
-    children: state.children,
-  };
-};
+const mapStateToProps = (state, props) => ({children: state.children});
 
 const mapDispatchToProps = (dispatch, getState) => {
   return {

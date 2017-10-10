@@ -38,7 +38,7 @@ export const childrenFetchRequest = () => dispatch => {
     .catch(console.error);
 };
 
-export const childCreateRequest = child => dispatch => {
+export const childCreateRequest = (child) => dispatch => {
   return superagent.post(`${__API_URL__}/api/child`)
     .send(child)
     .then(res => {
@@ -57,3 +57,13 @@ export const childDeleteRequest = (child) => (dispatch) => {
     })
     .catch(console.error);
 };
+
+export const childUpdateRequest = (child) => (dispatch) => {
+  return superagent.put( `${__API_URL__}/api/child/${child._id}` )
+    .send(child)
+    .then(res => {
+      dispatch(childUpdate(child));
+      return res;
+    })
+    .catch(console.error);
+}; 
