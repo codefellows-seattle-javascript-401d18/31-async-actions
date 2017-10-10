@@ -15,7 +15,7 @@ class ChildItem extends React.Component {
       return (
         <section className="child">
         //stuff to render about the kiddo
-          <h2>{child.name}</h2>
+          // <h2>{child.name}</h2>
         </section>
       )
     }
@@ -23,7 +23,7 @@ class ChildItem extends React.Component {
 
 let mapStateToProps = state => {
   return {
-    //not sure - do we even need this? 
+    //not sure - do we even need this?
   }
 }
 
@@ -35,3 +35,4 @@ let mapDispatchToProps = (dispatch, getState) => {
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChildItem)
+//MONGO ISN"T WORKING AND IT"S THE WORST EVER
