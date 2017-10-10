@@ -16,7 +16,7 @@ mongoose.connect(MONGODB_URI, {useMongoClient: true});
 
 // middleware
 const bodyParser = require('body-parser').json();
-//const cors = require('./cors');
+const cors = require('cors');
 
 // routes
 require('../route/route-toy')(router);
@@ -25,7 +25,7 @@ require('../route/route-child')(router);
 
 // mount middleware
 app.use(bodyParser);
-//app.use(cors);
+app.use(cors());
 app.use(router);
 
 app.all('/*', (req, res) => res.sendStatus(404));
