@@ -13,10 +13,11 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className="dashboard">
-        <h2>Children List Manager</h2>
+        <h1>Children List Manager</h1>
         <ChildForm
           onComplete={this.props.childCreate}
-          buttonText="create child"/>
+          buttonText="Create Child"/>
+          <h2> Children List: </h2>
 
         <ChildList
         />

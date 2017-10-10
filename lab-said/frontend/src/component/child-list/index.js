@@ -18,23 +18,25 @@ class ChildList extends React.Component {
       <div className='childList'>
         {this.props.children.map(child =>
           <div key={child._id}>
-            <p>{child.name}</p>
-            <button onClick={() => this.props.childDelete(child)}>Delete</button>
+
+          <ul>
+            <li><h4>Child Name: {child.name}.</h4></li>
 
             <div className='childUpdateForm'>
               <ChildForm
                 child={child}
                 onComplete={this.props.childUpdate}
-                buttonText="Update Child"
-              />
+                buttonText='Update Child'
+              required/>
+              <button onClick={() => this.props.childDelete(child)}>Delete {child.name}</button>
             </div>
+            </ul>
           </div>
         )}
       </div>
     );
   }
 }
-
 
 let mapStateToProps = state => ({children: state.children});
 let mapDispatchToProps = dispatch => ({
