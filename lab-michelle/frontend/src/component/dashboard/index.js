@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import ChildForm from '../child-form';
+import ChildItem from '../child-item';
 import * as util from '../../lib/util';
 import * as childActions from '../../action/child-actions';
 
