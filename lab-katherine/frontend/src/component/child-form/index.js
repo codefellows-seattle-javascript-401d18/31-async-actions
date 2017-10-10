@@ -1,33 +1,33 @@
-import React from 'react'
-import * as utils from '../../lib/util'
+import React from 'react';
+import * as utils from '../../lib/util';
 
 class ChildForm extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = props.child ? props.child : {name: ''}
-    this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
+    super(props);
+    this.state = props.child ? props.child : {name: ''};
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillReceiveProps(props) {
-    if(props.child) this.setState(props.child)
+    if(props.child) this.setState(props.child);
   }
 
   handleChange(e) {
-    this.setState({name: e.target.value})
+    this.setState({name: e.target.value});
   }
 
   handleSubmit(e) {
-    e.preventDefault()
-    let {onComplete} = this.props
-    let result = onComplete(this.state)
+    e.preventDefault();
+    let {onComplete} = this.props;
+    let result = onComplete(this.state);
     if (result instanceof Promise) {
       result
-      .then(() => this.setState({ error: null }))
-      .catch(error => {
-        util.log('ListForm Error:', error)
-        this.setState({ error })
-      })
+        .then(() => this.setState({ error: null }))
+        .catch(error => {
+          util.log('ListForm Error:', error);
+          this.setState({ error });
+        });
     }
   }
 
@@ -37,7 +37,7 @@ class ChildForm extends React.Component {
         onSubmit={this.handleSubmit}
         className={utils.classToggler({
           'child-form': true,
-          'error': this.state.error
+          'error': this.state.error,
         })}>
 
         <input
@@ -49,8 +49,8 @@ class ChildForm extends React.Component {
 
         <button type="submit">{this.props.buttonText}</button>
       </form>
-    )
+    );
   }
 }
 
-export default ChildForm
+export default ChildForm;
