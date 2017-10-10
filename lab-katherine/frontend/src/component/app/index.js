@@ -1,10 +1,10 @@
-import React from 'react'
-import {Provider} from 'react-redux'
-import {BrowserRouter, Route} from 'react-router-dom'
-import appStoreCreate from '../../lib/app-create-store'
-import Dashboard from '../dashboard'
+import React from 'react';
+import {Provider} from 'react-redux';
+import {BrowserRouter, Route} from 'react-router-dom';
+import appStoreCreate from '../../lib/app-create-store';
+import Dashboard from '../dashboard';
 
-const store = appStoreCreate()
+const store = appStoreCreate();
 
 class App extends React.Component {
   render() {
@@ -18,8 +18,8 @@ class App extends React.Component {
           </BrowserRouter>
         </Provider>
       </main>
-    )
+    );
   }
 }
 
-export default App
+export default App;

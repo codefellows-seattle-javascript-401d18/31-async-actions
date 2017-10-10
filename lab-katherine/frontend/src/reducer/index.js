@@ -1,4 +1,4 @@
-import {combineReducers} from 'redux'
-import children from './child'
+import {combineReducers} from 'redux';
+import children from './child';
 
-export default combineReducers({children})
+export default combineReducers({children});
