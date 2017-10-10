@@ -21,9 +21,10 @@ class Dashboard extends React.Component {
           buttonText="create child"/>
 
         {this.props.children.map(child =>{
+          console.log('map child;', child._id)
           return <ChildItem
             key={child._id}
-            category= {child} />
+            child= {child} />
         }
           // <div key={child._id}>
           //   <p>{child.name}</p>

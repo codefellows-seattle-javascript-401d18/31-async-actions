@@ -1,8 +1,8 @@
-import React from 'react'
-import {connect} from 'react-redux'
-import ChildForm from '../child-form'
+import React from 'react';
+import {connect} from 'react-redux';
+import ChildForm from '../child-form';
+import * as util from '../../lib/util';
 import * as childActions from '../../action/child-actions';
-
 
 class ChildItem extends React.Component {
   constructor(props) {
@@ -10,10 +10,11 @@ class ChildItem extends React.Component {
   }
 
   render() {
+    console.log('update', this.props.children.name)
     return (
       <div className="child-item">
         <button onClick={() => this.props.childDelete(this.props.child)}>X</button>
-        <h3>{this.props.child}</h3>
+        <h3>{this.props.child.name}</h3>
         <ChildForm
           buttonText="update"
           onComplete={this.props.childUpdate}
@@ -23,11 +24,12 @@ class ChildItem extends React.Component {
   }
 }
 
-let mapDispatchToProps = (dispatch, getState) => {
-  return {
-    childUpdate: child => dispatch(childUpdate(child)),
-    childDelete: child => dispatch(childDelete(child)),
-  }
-}
+let mapStateToProps = state => ({children: state.children});
+let mapDispatchToProps = dispatch => ({
+  childCreate: child => dispatch(childActions.childCreateRequest(child)),
+  childDelete: child => dispatch(childActions.childDeleteRequest(child)),
+  childrenFetch: () => dispatch(childActions.childrenFetchRequest()),
+  childUpdate: child => dispatch(childActions.childUpdateRequest(child)),
+});
 
-export default connect(null, mapDispatchToProps)(ChildItem)
+export default connect(mapStateToProps, mapDispatchToProps)(ChildItem)
