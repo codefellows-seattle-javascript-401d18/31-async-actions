@@ -1,7 +1,6 @@
 import React from 'react';
 import * as utils from '../../lib/utils';
 
-
 class ChildForm extends React.Component {
   constructor(props) {
     super(props);
@@ -10,35 +9,32 @@ class ChildForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
   componentWillReceiveProps(props) {
-    if (props.child) {
-      this.setState(props.child);
-    }
+    if(props.child) this.setState(props.child);
   }
 
   handleChange(e) {
     this.setState({name: e.target.value});
+    console.log('updated');
   }
 
   handleSubmit(e) {
     e.preventDefault();
     let {onComplete} = this.props;
     let result = onComplete(this.state);
-    if (result instanceof Promise) {
+    if(result instanceof Promise) {
       result
-        .then(() => this.setState({ error: null }))
+        .then(() => this.setState({ name: '', error: null }))
         .catch(error => {
           utils.log('ListForm Error:', error);
-          this.setState({ error });
+          this.setState({ name: '', error });
         });
     }
   }
 
-
-
   render() {
     return (
+
       <form
         onSubmit={this.handleSubmit}
         className={utils.classToggler({
@@ -55,6 +51,7 @@ class ChildForm extends React.Component {
 
         <button type="submit">{this.props.buttonText}</button>
       </form>
+
     );
   }
 }

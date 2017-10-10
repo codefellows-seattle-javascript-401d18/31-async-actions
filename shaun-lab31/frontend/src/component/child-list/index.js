@@ -1,40 +1,34 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import ChildForm from '../child-form';
-import * as util from '../../lib/utils';
-import * as childActions from '../../action/child-actions';
+import {
+  childDeleteRequest,
+  childUpdateRequest} from '../../action/child-actions';
 
 class ChildList extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log('__ITEM_PROPS__', props);
+  }
 
-
-  render () {
+  render() {
     return (
-      <div className='childList'>
-        {this.props.children.map(child =>
-          <div key={child._id}>
-            <p>{child.name}</p>
-            <button onClick={() => this.props.childDelete(child)}>x</button>
-
-            <div className='childUpdateForm'>
-              <ChildForm
-                onComplete={this.handleSubmit()}
-                buttonText="Update Child"
-              />
-            </div>
-          </div>
-        )}
+      <div className="child-list">
+        <p>{this.props.child.name}</p>
+        <button onClick={() => this.props.childDelete(this.props.child)}>x</button>
+        <ChildForm
+          onComplete={this.props.childUpdate}
+          child={this.props.child}
+          buttonText="update"/>
       </div>
     );
   }
 }
 
-
-let mapStateToProps = state => ({children: state.children});
+let mapStateToProps = () => ({});
 let mapDispatchToProps = dispatch => ({
-  childUpdate: child => dispatch(childActions.childUpdateRequest(child)),
-  childCreate: child => dispatch(childActions.childCreateRequest(child)),
-  childDelete: child => dispatch(childActions.childDeleteRequest(child)),
-  childrenFetch: () => dispatch(childActions.childrenFetchRequest()),
+  childDelete: child => dispatch(childDeleteRequest(child)),
+  childUpdate: child => dispatch(childUpdateRequest(child)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChildList);

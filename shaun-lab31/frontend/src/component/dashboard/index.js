@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import ChildForm from '../child-form';
 import ChildList from '../child-list';
-import * as util from '../../lib/utils';
+import * as utils from '../../lib/utils';
 import * as childActions from '../../action/child-actions';
 
 class Dashboard extends React.Component {
@@ -10,7 +10,6 @@ class Dashboard extends React.Component {
     this.props.childrenFetch();
     console.log('', this.props);
   }
-
 
   render() {
     return (
@@ -20,15 +19,11 @@ class Dashboard extends React.Component {
           onComplete={this.props.childCreate}
           buttonText="create child"/>
 
-        <ChildList
-        />
-
-        {/* {this.props.children.map(child =>
-          <div key={child._id}>
-            <p>{child.name}</p>
-            <button onClick={() => this.props.childDelete(child)}>x</button>
+        {utils.renderIf(this.props.children.length,
+          <div>
+            {this.props.children.map(item => <ChildList key={item._id} child={item}/>)}
           </div>
-        )} */}
+        )}
       </div>
     );
   }

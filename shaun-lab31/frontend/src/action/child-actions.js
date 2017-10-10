@@ -50,6 +50,7 @@ export const childCreateRequest = child => dispatch => {
 
 export const childDeleteRequest = (child) => (dispatch) => {
   return superagent.delete(`${__API_URL__}/api/child/${child._id}`)
+    .send(child)
     .then(res => {
       dispatch(childDelete(child));
       return res;

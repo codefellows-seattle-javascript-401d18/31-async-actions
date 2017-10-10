@@ -23,7 +23,7 @@
     "browser": true
   },
   "globals": {
-    "__API_URI__": false,
+    "__API_URI__": true,
     "__TITLE__": false,
     "__DEBUG__": false
   },
