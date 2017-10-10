@@ -1,4 +1,5 @@
 import React from 'react';
+import './child-list.scss';
 import {connect} from 'react-redux';
 import ChildForm from '../child-form';
 import * as util from '../../lib/util';
@@ -20,7 +21,7 @@ class ChildList extends React.Component {
 
   render () {
     return (
-      <Grid>
+      <Grid className='list'>
         <Row className="show-grid">
           {this.props.children.map(child => 
             <div key={child._id}>
