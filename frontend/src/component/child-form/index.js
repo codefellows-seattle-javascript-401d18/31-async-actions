@@ -1,5 +1,6 @@
 import React from 'react';
 import * as utils from '../../lib/util';
+import { Button, FormControl, Modal, Grid, Row, Col } from 'react-bootstrap';
 
 class ChildForm extends React.Component {
   constructor(props) {
@@ -34,6 +35,7 @@ class ChildForm extends React.Component {
 
   render() {
     return (
+
       <form
         onSubmit={this.handleSubmit} 
         className={utils.classToggler({
@@ -48,8 +50,9 @@ class ChildForm extends React.Component {
           value={this.state.title}
           onChange={this.handleChange}/>
 
-        <button type="submit">{this.props.buttonText}</button>
+        <Button bsStyle='primary' bsSize='large' type="submit">{this.props.buttonText}</Button>
       </form>
+
     );
   }
 }

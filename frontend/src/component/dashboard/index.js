@@ -4,6 +4,7 @@ import ChildForm from '../child-form';
 import ChildList from '../child-list';
 import * as util from '../../lib/util';
 import * as childActions from '../../action/child-actions';
+import { Button, FormControl, Modal, Grid, Row, Col } from 'react-bootstrap';
 
 class Dashboard extends React.Component {
   componentWillMount() {
