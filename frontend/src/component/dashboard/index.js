@@ -5,7 +5,7 @@ import ChildForm from '../child-form';
 import ChildList from '../child-list';
 import * as util from '../../lib/util';
 import * as childActions from '../../action/child-actions';
-import { Button, FormControl, Modal, Grid, Row, Col, Jumbotron } from 'react-bootstrap';
+import { Button, FormControl, Modal, Grid, Row, Col, Jumbotron, Collapse, Fade } from 'react-bootstrap';
 
 class Dashboard extends React.Component {
   constructor(props){
@@ -32,13 +32,14 @@ class Dashboard extends React.Component {
           <p>Click here to get started.</p>
           <p><Button bsStyle="primary" onClick={this.toggleFormStart}>Take me to the children!</Button></p>
         </Jumbotron>
-
+        
         {this.state.addName ?
-          <ChildForm 
-            onComplete={this.props.childCreate}
-            buttonText="create child"
-
-          />
+          <Fade in={this.addName} timeout={1000}>
+            <ChildForm 
+              onComplete={this.props.childCreate}
+              buttonText="create child"
+            />
+          </Fade>
           :
           undefined
         }
@@ -48,6 +49,7 @@ class Dashboard extends React.Component {
           :
           undefined
         }
+      
       </div>
     );
   }
