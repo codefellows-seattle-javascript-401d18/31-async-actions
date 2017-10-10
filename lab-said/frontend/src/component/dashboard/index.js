@@ -25,8 +25,6 @@ class Dashboard extends React.Component {
   }
 }
 
-
-
 let mapStateToProps = state => ({children: state.children});
 let mapDispatchToProps = dispatch => ({
   childCreate: child => dispatch(childActions.childCreateRequest(child)),

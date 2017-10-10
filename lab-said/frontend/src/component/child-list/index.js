@@ -19,7 +19,7 @@ class ChildList extends React.Component {
         {this.props.children.map(child =>
           <div key={child._id}>
             <p>{child.name}</p>
-            <button onClick={() => this.props.childDelete(child)}>x</button>
+            <button onClick={() => this.props.childDelete(child)}>Delete</button>
 
             <div className='childUpdateForm'>
               <ChildForm
