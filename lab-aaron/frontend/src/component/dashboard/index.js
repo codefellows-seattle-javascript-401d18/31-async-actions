@@ -13,10 +13,10 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className="dashboard">
-        <h2>Which one of the Dogs has the Toy?</h2>
+        <h2>Toy/Child Dashboard</h2>
         <ChildForm
           onComplete={this.props.childCreate}
-          buttonText={'add a dog'}/>
+          buttonText={'add a child'}/>
 
         {this.props.children.map(child =>
           <div key={child._id}>
