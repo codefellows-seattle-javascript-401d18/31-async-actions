@@ -25,13 +25,13 @@ class ChildForm extends React.Component {
     let result = onComplete(this.state);
     if (result instanceof Promise) {
       result
-        .then(() => this.setState({ error: null }))
+        .then(() => this.setState({ name: '', error: null }))
         .catch(error => {
-          util.log('ListForm Error:', error);
+          utils.log('ListForm Error:', error);
           this.setState({ error });
         });
     }
-    this.setState({title: ''});
+    // this.setState({name: ''});
   }
 
   render() {
@@ -48,7 +48,7 @@ class ChildForm extends React.Component {
           type="text"
           name="name"
           placeholder="name"
-          value={this.state.title}
+          value={this.state.name}
           onChange={this.handleChange}/>
 
         <Button bsStyle='primary' bsSize='large' type="submit">{this.props.buttonText}</Button>
