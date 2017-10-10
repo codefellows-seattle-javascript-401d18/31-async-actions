@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import ChildForm from '../child-form';
-import ChildItem from '../child-item';
+import ChildList from '../child-list';
 import * as utils from '../../lib/util';
 import * as childActions from '../../action/child-actions';
 
@@ -20,7 +20,7 @@ class Dashboard extends React.Component {
           onComplete={this.props.childCreate}
           buttonText="create child" />
 
-        <ChildItem />
+        <ChildList />
       </div>
     );
   }
