@@ -8,9 +8,13 @@ class ChildList extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-    
+      editName: false,
     };
-  
+    this.toggleName = this.toggleName.bind(this);    
+  }
+
+  toggleName () {
+    this.setState({editName : !this.state.editName});
   }
 
   render () {
@@ -20,14 +24,19 @@ class ChildList extends React.Component {
           <div key={child._id}>
             <p>{child.name}</p>
             <button onClick={() => this.props.childDelete(child)}>x</button>
-           
+            <button onClick={this.toggleName}>Edit Name</button>
             <div className='childUpdateForm'>
-              <ChildForm
-                child={child}
-                onComplete={this.props.childUpdate}
-                buttonText="Update Child"
-              />
+              {this.state.editName ?
+                <ChildForm
+                  child={child}
+                  onComplete={this.props.childUpdate}
+                  buttonText="Update Child"
+                />
+                :
+                undefined
+              }
             </div>
+          
           </div>
         )}
       </div>
