@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import ChildForm from '../child-form';
+import ChildItem from '../child-item';
 import * as util from '../../lib/util';
 import * as childActions from '../../action/child-actions';
 
@@ -19,13 +20,17 @@ class Dashboard extends React.Component {
           onComplete={this.props.childCreate}
           buttonText="create child"/>
 
-        {this.props.children.map(child =>
-          <div key={child._id}>
-            <p>{child.name}</p>
-            <button onClick={() => this.props.childDelete(child)}>x</button>
-            <button onClick={() => this.props.childUpdate(child)}>edit</button>
-
-          </div>
+        {this.props.children.map(child =>{
+          return <ChildItem
+            key={child._id}
+            category= {child} />
+        }
+          // <div key={child._id}>
+          //   <p>{child.name}</p>
+          //   <button onClick={() => this.props.childDelete(child)}>x</button>
+          //   <button onClick={() => this.props.childUpdate(child)}>edit</button>
+          //
+          // </div>
         )}
       </div>
     );
