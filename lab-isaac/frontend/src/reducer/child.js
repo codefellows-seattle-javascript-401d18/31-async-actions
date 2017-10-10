@@ -14,7 +14,7 @@ export default (state=[], action) => {
   case 'CHILD_CREATE': validate(payload);
     return [payload, ...state];
   case 'CHILD_UPDATE': validate(payload);
-    return state.map(item => item._id === payload ? payload : item);
+    return state.map(item => item._id === payload._id ? payload : item);
   case 'CHILD_DELETE': validate(payload);
     return state.filter(item => item._id !== payload._id);
   default:
