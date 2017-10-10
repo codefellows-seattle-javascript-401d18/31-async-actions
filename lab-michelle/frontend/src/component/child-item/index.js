@@ -13,26 +13,25 @@ class ChildItem extends React.Component {
 
     render() {
       return (
-        <section className="child">
+        <div className="child">
         //stuff to render about the kiddo
-          // <h2>{child.name}</h2>
-        </section>
+          <h2>{this.props.child.name}</h2>
+          <button onClick={() => this.props.childDelete(this.props.child)}x</button>
+          <ChildForm
+            onComplete = {this.props.childUpdate}
+            child={this.props.child}
+            buttonText = "update"/>
+        </div>
       )
     }
 }
 
-let mapStateToProps = state => {
-  return {
-    //not sure - do we even need this?
-  }
-}
+let mapStateToProps = () => ({})
 
-let mapDispatchToProps = (dispatch, getState) => {
-  return {
-    //it should probably do something here with the children actions that we wrote
-  }
-}
+let mapDispatchToProps = dispatch => ({
+  childDelete: child => dispatch(childDeleteRequest(child)),
+  childUpdate: child => dispatch(childUpdateRequest(child)),
+});
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChildItem)
-//MONGO ISN"T WORKING AND IT"S THE WORST EVER
