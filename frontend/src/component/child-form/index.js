@@ -31,6 +31,7 @@ class ChildForm extends React.Component {
           this.setState({ error });
         });
     }
+    this.setState({title: ''});
   }
 
   render() {
