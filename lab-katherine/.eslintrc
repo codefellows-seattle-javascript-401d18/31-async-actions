@@ -1,32 +1,33 @@
 {
-  "extends": "eslint:recommended",
+  "rules": {
+    "react/prop-types": [0],
+    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+    "comma-dangle": ["error", "always-multiline"],
+    "no-console": "off",
+    "no-unused-vars": "off",
+    "indent": [ "error", 2 ],
+    "semi": ["warn", "always"]
+  },
   "parserOptions": {
-    "ecmaVersion": 6,
-    "ecmaFeatures": {"impliedStrict": true}
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "module": true,
+      "jsx": true
+    }
   },
   "env": {
-    "browser": true,
-    "jquery": true,
-    "node": true,
     "es6": true,
-    "jest": true
+    "node": true,
+    "jest": true,
+    "browser": true
   },
-  "rules": {
-    semi: [2, "always"],
-    no-undefined: 2,
-    "indent": ["error", 2],
-    "quotes": ["warn", "single", {"allowTemplateLiterals": true}],
-    "no-multi-spaces": [1, {
-      "exceptions": {
-        "VariableDeclarator": true,
-        "FunctionExpression": true
-      }
-    }],
-    "key-spacing": [0, {"align": "value"}],
-    "no-underscore-dangle": 0,
-    "space-infix-ops": [2, {"int32Hint": false}],
-    "no-trailing-spaces": 1,
-    "no-mixed-spaces-and-tabs": 1,
-    "no-multiple-empty-lines": [1, {"max": 1}],
-  }
+  "globals": {
+    "__API_URI__": false,
+    "__TITLE__": false,
+    "__DEBUG__": false
+  },
+  "extends": [
+    "eslint:recommended"
+  ]
 }
