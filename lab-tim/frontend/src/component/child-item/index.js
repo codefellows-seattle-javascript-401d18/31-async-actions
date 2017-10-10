@@ -7,42 +7,32 @@ import * as util from '../../lib/util';
 class ChildItem  extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      edit: false,
-    };
-    this.toggleItem = this.toggleItem.bind(this);
+    // this.state = {
+    //   edit: false,
+    // };
+    //this.toggleItem = this.toggleItem.bind(this);
+    console.log('__CHILD_ITEM_PROPS__', this.props);
   }
 
-  toggleItem() {
-    this.setState({edit: !this.state.edit});
-  }
+  // toggleItem() {
+  //   this.setState({edit: !this.state.edit});
+  // }
 
   render() {
     return (
-      <div className='child-item'>
-        {this.props.children.map(child =>
-          <div key={child._id}>
-            <p>{child.name}</p>
-            <button onClick={this.toggleItem}>edit name</button>
-            <button onClick={() => this.props.childDelete(child)}>X</button>
-            <div className='child-update-form'>
-              {this.state.editName ?
-                <ChildForm
-                  child={child}
-                  onComplete={this.props.childUpdate}
-                  buttonText="update child"/>
-                :
-                undefined
-              }
-            </div>
-          </div>
-        )}
+      <div className='child-list'>
+        <p>{this.props.child.name}</p>
+        <button onClick={() => this.props.childDelete(this.props.child)}>X</button>
+        <ChildForm
+          onComplete={this.props.childUpdate}
+          child={this.props.child}
+          buttonText='update'/>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state, props) => ({children: state.children});
+const mapStateToProps = () => ({});
 
 const mapDispatchToProps = (dispatch, getState) => {
   return {

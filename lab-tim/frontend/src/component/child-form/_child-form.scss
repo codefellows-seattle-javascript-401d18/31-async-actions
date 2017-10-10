@@ -6,7 +6,7 @@ button[type="submit"] {
   }
 }
 
-.category-form {
+.child-form {
   input[type="text"] {
     border: solid .3vw $black;
   }
@@ -16,4 +16,8 @@ button[type="submit"] {
   }
 
   margin-bottom: 2vh;
+}
+
+.error {
+  border: 1px solid red;
 }

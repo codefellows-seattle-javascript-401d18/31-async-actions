@@ -31,8 +31,9 @@ export const childrenFetchRequest = () => dispatch => {
   // on error log out the issue
   return superagent.get(`${__API_URL__}/api/child`)
     .then(res => {
-      console.log(res.body);
-      dispatch(childSet(res.body));
+      let result = res.body ? res.body: [];
+      console.log('res.body', res.body);
+      dispatch(childSet(result));
       return res;
     })
     .catch(console.error);
@@ -66,4 +67,4 @@ export const childUpdateRequest = (child) => (dispatch) => {
       return res;
     })
     .catch(console.error);
-}; 
+};

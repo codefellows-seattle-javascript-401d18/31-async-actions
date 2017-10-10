@@ -8,17 +8,24 @@ import * as util from '../../lib/util';
 class Dashboard extends React.Component {
   componentWillMount() {
     this.props.childrenFetch();
-    console.log('', this.props);
   }
 
   render() {
+    console.log('__DASHBOARD_PROPS__', this.props);
     return (
       <div className="dashboard">
         <h2>Child/Toy Manager</h2>
         <ChildForm
           onComplete={this.props.childCreate}
           buttonText="create child"/>
-        <ChildItem/>
+
+        {util.renderIf(this.props.children.length,
+          <div>
+            {this.props.children.map(item =>
+              <ChildItem key={item._id} child={item}/>
+            )}
+          </div>
+        )}
       </div>
     );
   }

@@ -44,7 +44,7 @@ class ChildForm extends React.Component {
           type="text"
           name="name"
           placeholder="child name"
-          value={this.state.title}
+          value={this.state.name}
           onChange={this.handleChange}/>
 
         <button type="submit">{this.props.buttonText}</button>
