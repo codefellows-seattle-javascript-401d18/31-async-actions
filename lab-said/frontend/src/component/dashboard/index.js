@@ -21,8 +21,10 @@ class Dashboard extends React.Component {
 
         {this.props.children.map(child =>
           <div key={child._id}>
-            <p>{child.name}</p>
-            <button onClick={() => this.props.childDelete(child)}>x</button>
+          <ul>
+            <li>Child Name: {child.name}</li>
+            <button onClick={() => this.props.childDelete(child)}>Delete</button>
+          </ul>
           </div>
         )}
       </div>
