@@ -23,6 +23,8 @@ class Dashboard extends React.Component {
           <div key={child._id}>
             <p>{child.name}</p>
             <button onClick={() => this.props.childDelete(child)}>x</button>
+            <button onClick={() => this.props.childUpdate(child)}>edit</button>
+
           </div>
         )}
       </div>
@@ -35,6 +37,7 @@ let mapDispatchToProps = dispatch => ({
   childCreate: child => dispatch(childActions.childCreateRequest(child)),
   childDelete: child => dispatch(childActions.childDeleteRequest(child)),
   childrenFetch: () => dispatch(childActions.childrenFetchRequest()),
+  childUpdate: child => dispatch(childActions.childUpdateRequest(child)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
