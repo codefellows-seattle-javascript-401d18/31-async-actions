@@ -1,34 +1,24 @@
 import React from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
 import {Provider} from 'react-redux';
-import DashboardContainer from '../dashboard-container';
-import AboutContainer from '../about-container';
-import createAppStore from '../../lib/store';
+import Dashboard from '../dashboard';
+import appCreateStore from '../../lib/app-create-store';
 
-const store = createAppStore();
+const store = appCreateStore();
 
 class App extends React.Component {
 
   render() {
     return (
-      <section className="expense-tracker">
-        <header>
-          <nav>
-            <ul>
-              <li id="first-li"><a href="/">dashboard</a></li>
-              <li><a href="/about">about</a></li>
-            </ul>
-          </nav>
-        </header>
+      <main className="main-content">
         <Provider store={store}>
           <BrowserRouter>
             <section>
-              <Route exact path="/" component={DashboardContainer} />
-              <Route exact path="/about" component={AboutContainer} />
+              <Route exact path="/" component={Dashboard} />
             </section>
           </BrowserRouter>
         </Provider>
-      </section>
+      </main>
     );
   }
 }
