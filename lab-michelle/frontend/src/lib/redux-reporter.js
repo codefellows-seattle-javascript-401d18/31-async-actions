@@ -1,4 +1,6 @@
-let reporter = store => next => action => {
+import * as util from './util.js';
+
+export default store => next => action => {
   console.log('__ACTION__', action);
 
   try{
