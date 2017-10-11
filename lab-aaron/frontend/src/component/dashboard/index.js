@@ -2,28 +2,25 @@ import React from 'react';
 import {connect} from 'react-redux';
 import ChildForm from '../child-form';
 import ChildItem from '../child-item';
-import * as utils from '../../lib/util';
+import * as util from '../../lib/util';
 import * as childActions from '../../action/child-actions';
 
 class Dashboard extends React.Component {
   componentWillMount() {
     this.props.childrenFetch();
-    console.log('', this.props);
   }
 
   render() {
     return (
       <div className="dashboard">
-        <h2>Toy/Child Dashboard</h2>
+        <h2>Toy/Child Manager</h2>
         <ChildForm
           onComplete={this.props.childCreate}
-          buttonText={'add a child'}/>
+          buttonText={'Make a Child???'}/>
 
-        {this.props.children.map(child =>
-          <div key={child._id}>
-            <p>{child.name}</p>
-            <button onClick={() =>
-              this.props.childDelete(child)}>X</button>
+        {util.renderIf(this.props.children.length,
+          <div>
+            {this.props.children.map(item => <ChildItem key={item._id} child={item}/>)}
           </div>
         )}
       </div>
