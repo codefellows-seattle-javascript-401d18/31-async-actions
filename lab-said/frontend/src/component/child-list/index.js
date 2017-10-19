@@ -15,14 +15,14 @@ class ChildList extends React.Component {
 
   render () {
     return (
-      <div className='childList'>
+      <div className='child-list'>
         {this.props.children.map(child =>
           <div key={child._id}>
 
           <ul>
             <li><h4>Child Name: {child.name}.</h4></li>
 
-            <div className='childUpdateForm'>
+            <div className='child-update-form'>
               <ChildForm
                 child={child}
                 onComplete={this.props.childUpdate}
