@@ -1,5 +1,4 @@
 ![cf](https://i.imgur.com/7v5ASc8.png) 31: Async Actions
-======
 
 ## Submission Instructions
 * fork this repository & create a new branch for your work
@@ -51,7 +50,8 @@
 
 ###### App Component Tree
 Your components should be nested in the following layout  
-```
+
+``` 
 App
   DashboardContainer
     ResourceForm (create)
