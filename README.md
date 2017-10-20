@@ -7,7 +7,7 @@ This is the frontend to an app using React, Redux, MongoDB, and Express.
 
 ## About
 
-This application is a React App that allows the user to create, save, edit and delete notes.  Every function of this app has it's own component.  The Dashboard component lives in the App component and all of the other content lives in the Dashboard.
+This application is a React App that allows the user to create, save, edit and delete children list.  Every function of this app has it's own component.  The Dashboard component lives in the App component and all of the other content lives in the Dashboard.
 
 ## Installation
 
